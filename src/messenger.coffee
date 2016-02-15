@@ -31,7 +31,7 @@ class MessengerBot extends Adapter
             self.robot.logger.info 'Error: ' + err
         else
           self.emit "connected"
-          api.setOptions listenEvents: true
+          api.setOptions({listenEvents: true, forceLogin:true})
           self.client = api
           api.listen (err, msg) =>
             if err
